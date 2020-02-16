@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+ 
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/demoosc</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+        
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">2</property>
+        
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+        
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+       		 <!-- Drop the existing tables and create new one -->
+   <property name="hbm2ddl.auto">update</property>
+       		 <!-- explicitly closed session factory the schema will be deleted -->
+<!--    <property name="hbm2ddl.auto">create-drop</property> -->
+      		  <!-- it will check if matching data is not found then it will normally
+      		  runs the program if found it will throw an exception -->
+<!--  	<property name="hbm2ddl.auto">validate</property> -->
+ 				<!-- Create & update existing data -->
+<!--  	<property name="hbm2ddl.auto">update</property> -->
+ 
+        <!-- Mention here all the model classes along with their package name -->
+ 		
+ 		 <mapping class="com.ghostriders.osc.entity.User"/>
+ 		 <mapping class="com.ghostriders.osc.entity.Product"/>
+ 		 <mapping class="com.ghostriders.osc.entity.Order" />
+ 		 <mapping class="com.ghostriders.osc.entity.Category" />
+    </session-factory>
+</hibernate-configuration>
