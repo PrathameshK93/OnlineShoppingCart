@@ -23,8 +23,9 @@ public class registration extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//doGet(request, response);
-		String name=request.getParameter("name");
-		System.out.println(name);
+		String name=request.getParameter("uname");
+		String password=request.getParameter("pswd");
+		System.out.println("User name: "+name+"\npassword: "+password);
 	}
 
 }
