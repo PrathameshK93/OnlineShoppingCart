@@ -6,6 +6,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ghostriders.osc.entity.User;
+import com.ghostriders.osc.util.HibernateUtil;
+
 /**
  * Servlet implementation class registration
  */
@@ -25,6 +28,10 @@ public class registration extends HttpServlet {
 		//doGet(request, response);
 		String name=request.getParameter("name");
 		System.out.println(name);
+		HibernateUtil hu=new HibernateUtil();
+		User u=new User();
+		
+		hu.Hibernate(u);
 	}
 
 }
