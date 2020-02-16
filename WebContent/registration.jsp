@@ -3,22 +3,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Bootstrap Example</title>
+<title>Registration</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="bootstrap/bootstrap.min.css">
-<script src="bootstrap/jquery.min.js"></script>
-<script src="bootstrap/popper.min.js"></script>
-<script src="bootstrap/bootstrap.min.js"></script>
+<%@include file="Additionalimports.jsp"%>
 </head>
 <body>
+	<%@include file="Header.jsp"%>
 
 	<div class="container">
 		<h2>Form Validation</h2>
 		<form action="registration" class="was-validated" method="post">
 			<div class="form-group">
-				<label for="uname">Username:</label> 
-				<input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname" required>
+				<label for="uname">Username:</label> <input type="text"
+					class="form-control" id="uname" placeholder="Enter username"
+					name="uname" required>
 				<div class="valid-feedback">Valid.</div>
 				<div class="invalid-feedback">Please fill out this field.</div>
 			</div>
@@ -41,6 +40,6 @@
 			<input type="submit" class="btn btn-primary" value="submit">
 		</form>
 	</div>
-
+	<%@include file="Footer.jsp"%>
 </body>
 </html>
