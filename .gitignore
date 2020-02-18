@@ -4,5 +4,5 @@ target/
 target
 /build/
 */target/**
-pom.properties
+*/pom.properties
 
