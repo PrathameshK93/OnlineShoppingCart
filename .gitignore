@@ -3,6 +3,6 @@ target/
 *.class
 target
 /build/
-/target/
+*/target/**
 target/m2e-wtp/web-resources/META-INF/maven/OnlineShoppingCart/OnlineShoppingCart/pom.properties
 
