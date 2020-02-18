@@ -1,16 +1,20 @@
 package com.ghostriders.osc.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "product")
 public class Product {
 
 	@Id
+	@Column(name = "product_id")
 	private int ProductId;
+	@Column(name = "product_name")
 	private String Productname;
+	@Column(name = "product_price")
 	private int ProductPrice;
 
 	public int getProductId() {
