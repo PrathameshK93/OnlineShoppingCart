@@ -1,15 +1,18 @@
 package com.ghostriders.osc.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "category")
 public class Category {
 
 	@Id
+	@Column(name = "category_id")
 	private int cid;
+
 	public int getCid() {
 		return cid;
 	}

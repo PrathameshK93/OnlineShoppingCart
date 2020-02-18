@@ -13,7 +13,7 @@
     <description></description>
     <display-name>registration</display-name>
     <servlet-name>registration</servlet-name>
-    <servlet-class>com.ghostriders.osc.registration</servlet-class>
+    <servlet-class>com.ghostriders.osc.controller.registration</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>registration</servlet-name>
