@@ -1,6 +1,6 @@
 target/
 /target
-*.class
+/*.class
 target
 /build/
 */target/**
