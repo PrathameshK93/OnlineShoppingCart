@@ -1,33 +1,44 @@
 package com.ghostriders.osc.util;
 
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.hibernate.boot.Metadata;
 import org.hibernate.boot.MetadataSources;
-import org.hibernate.boot.SessionFactoryBuilder;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
 public class HibernateUtil {
+	private static StandardServiceRegistry registry;
+	private static SessionFactory sessionFactory;
 
-	public void Hibernate(Object object) {
-		StandardServiceRegistry standardregistry = new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml")
-				.build();
+	public static SessionFactory getSessionFactory() {
+		if (sessionFactory == null) {
+			try {
+				// Create registry
+				registry = new StandardServiceRegistryBuilder().configure().build();
 
-		Metadata metadata = new MetadataSources(standardregistry).getMetadataBuilder().build();
+				// Create MetadataSources
+				MetadataSources sources = new MetadataSources(registry);
 
-		SessionFactoryBuilder sessionFactoryBuilder = metadata.getSessionFactoryBuilder();
+				// Create Metadata
+				Metadata metadata = sources.getMetadataBuilder().build();
 
-		SessionFactory sessionFactory = sessionFactoryBuilder.build();
+				// Create SessionFactory
+				sessionFactory = metadata.getSessionFactoryBuilder().build();
 
-		Session session = sessionFactory.openSession();
-		Transaction tx = session.beginTransaction();
-
-		session.save(object);
-		tx.commit();
-		session.close();
-		sessionFactory.close();
-
+			} catch (Exception e) {
+				e.printStackTrace();
+				if (registry != null) {
+					StandardServiceRegistryBuilder.destroy(registry);
+				}
+			}
+		}
+		return sessionFactory;
 	}
+
+	public static void shutdown() {
+		if (registry != null) {
+			StandardServiceRegistryBuilder.destroy(registry);
+		}
+	}
+
 }
